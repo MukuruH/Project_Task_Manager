@@ -1,3 +1,22 @@
+CREATE TABLE user_details (
+  user_id int PRIMARY KEY,
+  username varchar UNIQUE NOT NULL,
+  password varchar,
+  status int
+);
+
+
+CREATE TABLE workspace (
+  workspace_id int PRIMARY KEY,
+  workspace_name varchar UNIQUE,
+  created_by int NOT NULL,
+  decription text,
+  CONSTRAINT fk_owner
+    FOREIGN KEY (created_by) 
+        REFERENCES user_details(user_id)
+);
+
+
 CREATE TABLE task (
   task_id int PRIMARY KEY,
   task_name varchhar UNIQUE NOT NULL,
@@ -20,16 +39,8 @@ CREATE TABLE task (
 );
 
 
-CREATE TABLE user_details (
-  user_id int PRIMARY KEY,
-  username varchar UNIQUE NOT NULL,
-  password varchar,
-  status int
-);
-
-
 CREATE TABLE task_extensios (
-  task_extensios_id int,
+  task_extensios_id int PRIMARY KEY,
   task_id int,
   old_start_date date,
   new_start_date date,
@@ -47,7 +58,7 @@ CREATE TABLE task_extensios (
 
 
 CREATE TABLE workspace_user_access (
-  workspace_user_access_id int,
+  workspace_user_access_id int PRIMARY KEY,
   workspace_id int,
   user_id int,
   access_level int,
@@ -57,13 +68,13 @@ CREATE TABLE workspace_user_access (
         REFERENCES user_details(user_id),
   CONSTRAINT fk_user
     FOREIGN KEY (workspace_id) 
-        REFERENCES workspace(workspace_id),
+        REFERENCES workspace(workspace_id)
 
 );
 
 
 CREATE TABLE task_detail (
-  task_detail_id int,
+  task_detail_id int PRIMARY KEY,
   task_id int,
   CONSTRAINT fk_task
     FOREIGN KEY (task_id) 
@@ -71,15 +82,6 @@ CREATE TABLE task_detail (
 );
 
 
-CREATE TABLE workspace (
-  workspace_id int,
-  workspace_name varchar UNIQUE,
-  created_by int NOT NULL,
-  decription text,
-  CONSTRAINT fk_owner
-    FOREIGN KEY (created_by) 
-        REFERENCES user_details(user_id)
-);
 
 
 
