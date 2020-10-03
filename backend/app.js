@@ -1,9 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const indexRout = require("./routes/index")
-const port = "3000"
-const cors = require('cors')
+const indexRout = require("./routes/index"); 
+const port = "3000";
+const cors = require('cors');
+const models = require('./models');
 
 app
     .use(bodyParser.json())
@@ -14,7 +15,8 @@ app
     
     //routes
     .use("/",indexRout)
-
-app.listen(port,()=>{
-    console.log("Application started at " + port)
+models.sequelize.sync().then(() =>{
+    app.listen(port,()=>{
+        console.log("Application started at " + port)
+    });
 })
