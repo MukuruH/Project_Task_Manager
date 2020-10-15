@@ -15,8 +15,7 @@ app
     
     //routes
     .use("/",indexRout)
-models.sequelize.sync().then(() =>{
+    
     app.listen(port,()=>{
         console.log("Application started at " + port)
     });
-})
