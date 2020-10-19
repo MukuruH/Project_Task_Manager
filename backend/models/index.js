@@ -1,14 +1,14 @@
-const {Sequelize, DataTypes} = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres:password1@localhost:5432/project_manager');
+const {Sequelize, Model, DataTypes} = require('sequelize');
+const sequelize = new Sequelize('postgres://djangoappguy:django1234@localhost:5432/project_manager');
 
-const models = {
-    User_details:  sequelize.user_details,
-    Task: sequelize.task,
-    Task_detail: sequelize.task_detail,
-    Task_extensions: sequelize.task_extensions,
-    Workspace: sequelize.workspace,
-    Workspace_user_access: sequelize.workspace_user_access
-};
+// const models = {
+//     User_details:  sequelize.user_details,
+//     Task: sequelize.task,
+//     Task_detail: sequelize.task_detail,
+//     Task_extensions: sequelize.task_extensions,
+//     Workspace: sequelize.workspace,
+//     Workspace_user_access: sequelize.workspace_user_access
+// };
 
 // Object.keys(models).forEach((modelName) =>{
 //     if('associate' in models[modelName]){
@@ -141,7 +141,7 @@ workspace.associate = (models) => {
     });
 };
 
-models.sequelize = sequelize;
-models.Sequelize = Sequelize;
+// models.sequelize = sequelize;
+// models.Sequelize = Sequelize;
 
-module.exports = models;
+module.exports = {user_details};
