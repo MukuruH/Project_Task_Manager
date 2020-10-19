@@ -5,9 +5,9 @@ const models = require("../models")
 //     await models.User_details
 // }
 
-async function addUser(user_id, username, password, status) {
+async function addUser( username, password, status) {
     return await models.user_details.create({
-        user_id: user_id,
+        // user_id: user_id,
         username: username,
         password: password,
         status: status

@@ -1,5 +1,5 @@
-const {Sequelize, Model, DataTypes} = require('sequelize');
-const sequelize = new Sequelize('postgres://djangoappguy:django1234@localhost:5432/project_manager');
+const {Sequelize, DataTypes} = require('sequelize');
+const sequelize = new Sequelize('postgres://postgres:password1@localhost:5432/project_manager');
 
 // const models = {
 //     User_details:  sequelize.user_details,

@@ -20,14 +20,14 @@ router.post("/adding",(req, res, next)=>{
 })
 
 router.post("/users", (req, res, next) => {
-    const user_id = req.body.user_id
+    // const user_id = req.body.user_id
     const username = req.body.username
     const password = req.body.password
     const status = req.body.status
     console.log(username)
     console.log(password)
     ppl.addUser(
-        user_id,
+        // user_id,
         username,
         password,
         status
